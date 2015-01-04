@@ -9,11 +9,20 @@ function initiate() {
 	carousel_1_images = $('.carousel-1-images'); //This will return an array of the images
 	left_arrow = $('#left-arrow');
 	right_arrow = $('#right-arrow');
-	left_arrow.click(slideNext);
-	right_arrow.click(slidePrev);
+	left_arrow.click(slidePrev);
+	right_arrow.click(slideNext);
+}
+
+function nextPixIndex() {
+    if (pix_index == carousel_1_images.length-1) {
+        return 0;
+    }
+    return pix_index + 1;
 }
 
 function slideNext() {
+     $(carousel_1_images[nextPixIndex()]).css('left', '1020px');
+
 	 $(carousel_1_images[pix_index]).animate(
         {
             left: '-1020px'
@@ -23,7 +32,7 @@ function slideNext() {
             $(this).css('left', '1020px');
         } 
     );
-	 pix_index++;  //moves index to next imadge
+	 pix_index++;  //moves index to next image
 	 if(pix_index === carousel_1_images.length) {
 	 	pix_index=0; //resets the index back to zero to start from the beginning
 	 }

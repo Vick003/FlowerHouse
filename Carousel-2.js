@@ -16,7 +16,18 @@ function initiate() {
 	right_arrow.click(slideNext);
 }
 
+function nextPixIndex() {
+    if (pix2_index == carousel_2_images.length-1) {
+        return 0;
+    }//if the index is equal to last pix + 1, reset it to 0;
+    return pix2_index + 1;
+}
+
+
+
 function slideNext() {
+    $(carousel_2_images[nextPixIndex()]).css("left", "1020px");
+
 	 $(carousel_2_images[pix2_index]).animate(
         {
             left: '-1020px'
@@ -28,14 +39,14 @@ function slideNext() {
          
     
     );
-            $(dots[pix2_index]).attr("src", "images/dot-inactive.png"); 
-	 pix2_index++;  //moves index to next imadge
-    $(dots[pix2_index]).attr("src","images/dot-active.png");
-	 if(pix2_index === carousel_2_images.length) {
-	 	pix2_index=0; //resets the index back to zero to start from the beginning
+        $(dots[pix2_index]).attr("src", "images/dot-inactive.png"); 
+	    pix2_index++;  //moves index to next imadge
+        $(dots[pix2_index]).attr("src","images/dot-active.png");
+	       if(pix2_index === carousel_2_images.length) {
+	 	     pix2_index=0; //resets the index back to zero to start from the beginning
      
-         $(dots[pix2_index]).attr("src", "images/dot-active.png");
-	 }
+             $(dots[pix2_index]).attr("src", "images/dot-active.png");
+	       }
 	 //Animate the next box
 	 $(carousel_2_images[pix2_index]).animate(
         {
